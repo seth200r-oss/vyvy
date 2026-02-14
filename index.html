@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Valentine's Day ❤️</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: white;
+            font-size: 26px;
+        }
+
+        p {
+            color: white;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        h2 {
+            color: white;
+            font-size: 18px;
+        }
+
+        .container {
+            position: relative;
+            margin-top: 20px;
+            height: 120px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #yesBtn {
+            background-color: #ff2e63;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: gray;
+            color: white;
+            position: absolute;
+        }
+
+        #gift {
+            font-size: 80px;
+            cursor: pointer;
+            display: none;
+            margin-top: 20px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        #videoContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <h1>Happy Valentine's Day ❤️</h1>
+
+        <p>
+            I miss u so much every moment. I just hope that you can work there 
+            to gain a lot experience and be safe. Please eat good food and 
+            take care your skin as well. But even you are black, you still look so cute 💕
+        </p>
+
+        <div class="container">
+            <h2>Click Yes if you love me 🥰</h2>
+
+            <button id="yesBtn" onclick="showGift()">Yes 💖</button>
+            <button id="noBtn">No 😢</button>
+        </div>
+
+        <div id="gift" onclick="openGift()">🎁</div>
+
+        <div id="videoContainer">
+            <h2>This is for you 💝</h2>
+            <video id="loveVideo" controls playsinline>
+                <source src="Gift.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        const video = document.getElementById("loveVideo");
+
+        // Make NO button run away
+        noBtn.addEventListener("mouseover", function() {
+            const x = Math.random() * 200;
+            const y = Math.random() * 80;
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        });
+
+        function showGift() {
+            document.querySelector(".container").style.display = "none";
+            document.getElementById("gift").style.display = "block";
+        }
+
+        function openGift() {
+            document.getElementById("gift").style.display = "none";
+            document.getElementById("videoContainer").style.display = "block";
+
+            // Play video (with sound inside)
+            video.play();
+        }
+    </script>
+
+</body>
+</html>
